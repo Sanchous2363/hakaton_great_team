@@ -46,3 +46,13 @@ def get_all_weather(id):
         return all_weather
     connection.commit()
     cur.close()
+
+def get_hunidity(id):
+    connection = sqlite3.connect('users.db')
+    cur = connection.cursor()
+    results = cur.execute(
+        f'SELECT humidity FROM users WHERE user_id = {id} ORDER BY id DESC;')
+    for i in results:
+        return str(i[0])
+    connection.commit()
+    cur.close()
