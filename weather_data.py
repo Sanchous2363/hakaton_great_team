@@ -42,7 +42,7 @@ def get_all_weather(id):
     results = cur.execute(
         f'SELECT description, humidity,temp FROM users WHERE user_id = {id} ORDER BY id DESC;')
     for i in results:
-        all_weather = str(i[0]) + str(i[1]) + str(i[2])
+        all_weather = f"{str(i[0])}\n{str(i[1])}\n{str(i[2])}"
         return all_weather
     connection.commit()
     cur.close()
